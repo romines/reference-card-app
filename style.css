@@ -1,3 +1,10 @@
 .main {
   margin-top: 2%;
 }
+textarea.card-contents {
+    height: 60%;
+    min-height: 340px;
+}
+input {
+  margin-bottom: 8px;
+}
