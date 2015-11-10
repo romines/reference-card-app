@@ -2,11 +2,16 @@
 <div class="form-group">
   <form name="cardForm" ng-submit="save(card)">
     <label for="card-title">Title</label>
-    <input ng-model="card.title" id="card-title" class="form-control"></input>
+    <input ng-model="card.title" id="card-title" class="form-control">
     <label for="card-content">Card Contents</label>
     <textarea ng-model="card.content" class="form-control" id="card-content" rows="24"></textarea>
     <label for="tags">Tags</label>
-    <input ng-model="card.tags" type="text" class="form-control" id="tags" placeholder="eg. controller, validation, input" onfocus="placeholder=''" onblur="placeholder='eg. controller, validation, input'"></input>
+    <input ng-model="card.tags" type="text" class="form-control" id="tags" placeholder="eg. controller, validation, input" onfocus="placeholder=''" onblur="placeholder='eg. controller, validation, input'">
+    <div class="checkbox">
+      <label>
+        <input ng-model="card.code" type="checkbox"> Use syntax highlighting
+      </label>
+    </div>
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
 </div>

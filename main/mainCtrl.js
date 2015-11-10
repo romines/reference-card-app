@@ -7,7 +7,8 @@ angular.module('cardApp')
       var formDefaults = {
         title: '',
         content: '',
-        tags: ''
+        tags: '',
+        code: true
       };
       var newCard = angular.copy(card);
       cards.$add(newCard);
