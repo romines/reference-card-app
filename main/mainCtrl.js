@@ -1,11 +1,17 @@
 angular.module('cardApp')
-  .controller('mainCtrl', ['$scope', 'cardService', function ($scope, cardService) {
-    // $scope.card = 'This is a sweet card';
+  .controller('mainCtrl', ['$scope', '$firebaseObject', '$firebaseArray', 'cardService', function ($scope, $firebaseObject, $firebaseArray, cardService) {
     $scope.aboutText = 'Some stuff about the app';
     $scope.datas = cardService.getCards();
 
-    $scope.cards = [];
+    
 
+
+      
+    var cardsRef = new Firebase('https://reference-cards-app.firebaseio.com/cards')
+        cards = $firebaseArray(cardsRef)
+    
+    $scope.cards = cards;
+      
     $scope.save = function(card) {
       var formDefaults = {
         title: '',
@@ -14,10 +20,11 @@ angular.module('cardApp')
       };
 
 
-      // console.log('Save fired. Contents of card: ', card)
       var newCard = angular.copy(card);
-      $scope.cards.push(newCard);
+      cards.$add(newCard);
       $scope.card = formDefaults;
       $scope.cardForm.$setPristine();
     };
+      
+      
 }]);
