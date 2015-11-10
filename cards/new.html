@@ -1,10 +1,13 @@
 <h1>Create a New Card</h1>
+<div class="temp" ng-repeat="card in cards">Title: {{card.title}}<br>Content: {{card.content}}<br>Tags: {{card.tags}}</div>
 <div class="form-group">
-  <form>
-    <label for="card-contents">Card Contents</label>
-    <textarea class="form-control" id="card-contents" rows="24"></textarea>
+  <form name="cardForm" ng-submit="save(card)">
+    <label for="card-title">Title</label>
+    <input ng-model="card.title" id="card-title" class="form-control"></input>
+    <label for="card-content">Card Contents</label>
+    <textarea ng-model="card.content" class="form-control" id="card-content" rows="24"></textarea>
     <label for="tags">Tags</label>
-    <input type="text" class="form-control" id="tags" placeholder="eg. controller, validation, input" onfocus="placeholder=''" onblur="placeholder='eg. controller, validation, input'"></input>
+    <input ng-model="card.tags" type="text" class="form-control" id="tags" placeholder="eg. controller, validation, input" onfocus="placeholder=''" onblur="placeholder='eg. controller, validation, input'"></input>
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
 </div>

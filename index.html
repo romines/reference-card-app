@@ -4,22 +4,22 @@
   <meta charset="UTF-8">
   <title>Document</title>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-  <!-- <link rel="stylesheet" href="lib/prettify.css"> -->
   <link rel="stylesheet" href="lib/prettify-style.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="container" ng-controller="navCtrl">
-    <div class="theNav">
+  <div class="container">
+    <div class="theNav" ng-controller="navCtrl">
       <ul class="nav nav-tabs">
         <li role="presentation" ng-class="{active: isActive('/')}"><a ui-sref="cards">Home</a></li>
         <li role="presentation"><a ui-sref="new">Add Card</a></li>
         <li role="presentation"><a ui-sref="about">About</a></li>
       </ul>
     </div>
-  <div class="main" ui-view></div>
+    <div class="main" ui-view></div>
   </div>
+  
 
 <script src="lib/prettify.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.js"></script>
