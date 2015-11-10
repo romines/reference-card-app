@@ -5,7 +5,16 @@ var myApp = angular.module('cardApp', ['ui.router', 'firebase'])
       .state('cards', {
         templateUrl: 'cards/cards.html',
         controller: 'mainCtrl',
-        url: '/'
+        url: '/',
+        resolve: {
+            cards: function ($firebaseArray) {
+            var cardsRef = new Firebase('https://reference-cards-app.firebaseio.com/cards')
+            cards = $firebaseArray(cardsRef);
+            return cards.$loaded().then(function(data) {
+                return data;
+                });
+            }
+        }
       })
       .state('about', {
         templateUrl: 'about/about.html',
