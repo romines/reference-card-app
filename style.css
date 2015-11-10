@@ -5,6 +5,9 @@ textarea.card-contents {
     height: 60%;
     min-height: 340px;
 }
+pre {
+  background-color: #28323F;
+}
 input {
   margin-bottom: 8px;
 }
