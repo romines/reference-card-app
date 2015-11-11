@@ -19,5 +19,34 @@ angular.module('cardApp')
       $scope.cardForm.$setPristine();
       $state.go('cards');
     };
+    
+    $scope.cardFiltr = '';
+    
+    
+    $scope.foo = 'bar';
+    
+    
+    $scope.tags = [
+      {
+        name: 'red',
+        num: 20,
+        weight: 0
+      },
+      {
+        name: 'blue',
+        num: 30,
+        weight: 0
+      },
+      {
+        name: 'green',
+        num: 20,
+        weight: 0
+      },
+      {
+        name: 'purple',
+        num: 10,
+        weight: 0
+      }
+    ];
 
 }]);

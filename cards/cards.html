@@ -1,12 +1,23 @@
-<form action="" class="form-inline">
- <div class="form-group filter">
-  <label for="cardFilter">What can I help you with? :</label>
-  <input type="text" ng-model= "cardFilter" class="form-control" id="cardFilter" placeholder="eg. directive, filter, ui-router" onfocus="placeholder=''" onblur="placeholder='eg. directive, filter, ui-router'">
- </div>
-</form>
-
-<div ng-repeat="card in cards | reverse | filter: cardFilter ">
-  <h3>{{card.title}}</h3>
-  <card card="card"></card>
-  <p><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> &nbsp; {{card.tags}}</p>
+<div class="row">
+  <div class="col-md-2 tagCloud">
+    <h4>Popular Topics</h4>
+<!--    <span ng-repeat="tag in tags" ng-click="setFilter(tag.name)" ng-init="count=0" class="tag">{{tag.name}}</span>-->
+ <tag ng-repeat="tag in tags" tag="tag" filter="cardFilter"></tag>
+  </div>
+  <div class="col-md-10">
+    <!-- Filter cards search -->
+    <form action="" class="form-inline">
+     <div class="form-group" id="filter">
+      <label for="cardFilter"><span class="glyphicon glyphicon-search"></span></label>
+      <input type="text" ng-model="cardFilter" class="form-control" id="cardFilter" placeholder="eg. directive, filter, ui-router" onfocus="placeholder=''" onblur="placeholder='eg. directive, filter, ui-router'">
+      <div class="clearfix"></div>
+     </div>
+    </form>
+    <!-- ng-repeat: display cards -->
+    <div ng-repeat="card in cards | reverse | filter: cardFilter ">
+      <h3>{{card.title}}</h3>
+      <card card="card"></card>
+      <p><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> &nbsp; {{card.tags}}</p>
+    </div>
+  </div>
 </div>
