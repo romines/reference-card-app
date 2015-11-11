@@ -1,5 +1,5 @@
 angular.module('cardApp')
-  .controller('mainCtrl', ['$scope', '$firebaseObject', '$firebaseArray', 'cards', function ($scope, $firebaseObject, $firebaseArray, cards) {
+  .controller('mainCtrl', ['$scope', '$firebaseObject', '$firebaseArray', '$state', 'cards', function ($scope, $firebaseObject, $firebaseArray, $state, cards) {
     // put isolate scope cards (via resolve) on $scope
     $scope.cards = cards;
     
@@ -17,6 +17,7 @@ angular.module('cardApp')
       cards.$add(newCard);
       $scope.card = formDefaults;
       $scope.cardForm.$setPristine();
+      $state.go('cards');
     };
 
 }]);

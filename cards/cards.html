@@ -1,12 +1,12 @@
 <form action="" class="form-inline">
- <div class="form-group">
+ <div class="form-group filter">
   <label for="cardFilter">What can I help you with? :</label>
   <input type="text" ng-model= "cardFilter" class="form-control" id="cardFilter" placeholder="eg. directive, filter, ui-router" onfocus="placeholder=''" onblur="placeholder='eg. directive, filter, ui-router'">
  </div>
 </form>
 
-<div ng-repeat="card in cards | filter: cardFilter">
+<div ng-repeat="card in cards | reverse | filter: cardFilter ">
   <h3>{{card.title}}</h3>
   <card card="card"></card>
-  <p>{{card.tags}}</p>
+  <p><span class="glyphicon glyphicon-tag" aria-hidden="true"></span> &nbsp; {{card.tags}}</p>
 </div>
