@@ -1,6 +1,11 @@
-<h1>This is the awesome card partial.</h1>
+<form action="" class="form-inline">
+ <div class="form-group">
+  <label for="cardFilter">What can I help you with? :</label>
+  <input type="text" ng-model= "cardFilter" class="form-control" id="cardFilter" placeholder="eg. directive, filter, ui-router" onfocus="placeholder=''" onblur="placeholder='eg. directive, filter, ui-router'">
+ </div>
+</form>
 
-<div ng-repeat="card in cards">
+<div ng-repeat="card in cards | filter: cardFilter">
   <h3>{{card.title}}</h3>
   <card card="card"></card>
   <p>{{card.tags}}</p>

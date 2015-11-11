@@ -11,8 +11,10 @@ angular.module('cardApp')
         elem.text(scope.card.content);
         
         if(scope.card.code) {
-          elem.html('<pre>' + prettyPrintOne(elem.text()) + '</pre>');  
-        } 
+          elem.html('<pre class="pretty">' + prettyPrintOne(elem.text()) + '</pre>');  
+        } else {
+          elem.html('<pre>' + elem.text() + '</pre>');
+        }
         
       }
     };

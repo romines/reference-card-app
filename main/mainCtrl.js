@@ -1,8 +1,11 @@
 angular.module('cardApp')
   .controller('mainCtrl', ['$scope', '$firebaseObject', '$firebaseArray', 'cards', function ($scope, $firebaseObject, $firebaseArray, cards) {
-    // cards placed on scope by resolve
+    // put isolate scope cards (via resolve) on $scope
     $scope.cards = cards;
-
+    
+    // handle saving new card
+    // takes: card object
+    //
     $scope.save = function (card) {
       var formDefaults = {
         title: '',
@@ -15,7 +18,5 @@ angular.module('cardApp')
       $scope.card = formDefaults;
       $scope.cardForm.$setPristine();
     };
-
-
 
 }]);
