@@ -20,10 +20,9 @@ angular.module('cardApp')
       $state.go('cards');
     };
     
-    $scope.cardFiltr = '';
-    
-    
-    $scope.foo = 'bar';
+    $scope.updateFilter = function(tagName) {
+      $scope.cardFilter = tagName;
+    }
     
     
     $scope.tags = [

@@ -1,11 +1,20 @@
 <div class="row">
   <div class="col-md-2 tagCloud">
     <h4>Popular Topics</h4>
-<!--    <span ng-repeat="tag in tags" ng-click="setFilter(tag.name)" ng-init="count=0" class="tag">{{tag.name}}</span>-->
- <tag ng-repeat="tag in tags" tag="tag" filter="cardFilter"></tag>
+    <!-- 
+    *******************
+    Tag cloud
+    *******************
+    -->
+ <tag ng-repeat="tag in tags" tag="tag" ng-click="updateFilter(tag.name)"></tag>
+ <span ng-click="updateFilter('')">all</span>
   </div>
   <div class="col-md-10">
-    <!-- Filter cards search -->
+    <!-- 
+    *******************
+    Filter cards search box
+    *******************
+    -->
     <form action="" class="form-inline">
      <div class="form-group" id="filter">
       <label for="cardFilter"><span class="glyphicon glyphicon-search"></span></label>
@@ -13,7 +22,11 @@
       <div class="clearfix"></div>
      </div>
     </form>
-    <!-- ng-repeat: display cards -->
+    <!-- 
+    *******************
+    ng-repeat: cards
+    *******************
+    -->
     <div ng-repeat="card in cards | reverse | filter: cardFilter ">
       <h3>{{card.title}}</h3>
       <card card="card"></card>

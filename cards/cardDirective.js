@@ -5,7 +5,7 @@ angular.module('cardApp')
         card: '='
       },
       restrict: 'E',
-      templateUrl: 'cards/card.html',
+      template: '{{card.content}}',
       link: function (scope, elem, attrs) {
         
         elem.text(scope.card.content);
