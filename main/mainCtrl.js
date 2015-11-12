@@ -1,7 +1,7 @@
 angular.module('cardApp')
   .controller('mainCtrl', ['$scope', '$firebaseObject', '$firebaseArray', '$state', 'cards', 'processTag', function ($scope, $firebaseObject, $firebaseArray, $state, cards, processTag) {
     // put isolate scope cards (via resolve) on $scope
-    $scope.cards = cards;
+    $scope.cards = cards.data;
 
     // handle saving new card
     // takes: card object
@@ -26,9 +26,15 @@ angular.module('cardApp')
     }
 
     var listifyTags = function (card) {
-      var tagsArray = card.tags.split(/[ ,]+/);
-      card.tags = tagsArray;
-      return card;
+      if (card.tags) {
+      // var tagsArray = card.tags.split(/[ ,]+/);
+      // card.tags = tagsArray;
+      console.log(card.tags)
+    // } else {
+    //   card.tags = [];
+    }
+    //   return card;
+
     }
 
     $scope.tags = [
@@ -56,9 +62,11 @@ angular.module('cardApp')
 
     var once = function (collection) {
       for (card in collection) {
-        card = listifyTags(card);
+        card.update({
+          "tags": listifyTags(card)});
       }
     }
+    // once($scope.cards);
 
     // var cloud = processTag.buildCloud($scope.cards);
     // console.log ('cloud: ', cloud)

@@ -29,7 +29,10 @@ var myApp = angular.module('cardApp', ['ui.router', 'firebase'])
             var cardsRef = new Firebase('https://reference-cards-app.firebaseio.com/cards')
             cards = $firebaseArray(cardsRef);
             return cards.$loaded().then(function (data) {
-              return data;
+              return {
+                data: data,
+                cardsRef: cardsRef
+              };
             });
           }
         }
