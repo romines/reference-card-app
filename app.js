@@ -1,6 +1,5 @@
 var myApp = angular.module('cardApp', ['ui.router', 'firebase'])
   .config(function ($stateProvider, $urlRouterProvider) {
-    // comment, yo
     $stateProvider
       .state('cards', {
         templateUrl: 'cards/cards.html',

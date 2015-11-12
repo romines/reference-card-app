@@ -2,7 +2,7 @@ angular.module('cardApp')
   .controller('mainCtrl', ['$scope', '$firebaseObject', '$firebaseArray', '$state', 'cards', function ($scope, $firebaseObject, $firebaseArray, $state, cards) {
     // put isolate scope cards (via resolve) on $scope
     $scope.cards = cards;
-    
+
     // handle saving new card
     // takes: card object
     //
@@ -19,31 +19,31 @@ angular.module('cardApp')
       $scope.cardForm.$setPristine();
       $state.go('cards');
     };
-    
+
     $scope.updateFilter = function(tagName) {
       $scope.cardFilter = tagName;
     }
-    
-    
+
+
     $scope.tags = [
       {
         name: 'red',
-        num: 20,
+        num: 50,
         weight: 0
       },
       {
         name: 'blue',
-        num: 30,
+        num: 70,
         weight: 0
       },
       {
         name: 'green',
-        num: 20,
+        num: 40,
         weight: 0
       },
       {
         name: 'purple',
-        num: 10,
+        num: 20,
         weight: 0
       }
     ];

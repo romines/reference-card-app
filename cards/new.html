@@ -9,7 +9,7 @@
     <input ng-model="card.tags" type="text" class="form-control" id="tags" placeholder="eg. controller, validation, input" onfocus="placeholder=''" onblur="placeholder='eg. controller, validation, input'">
     <div class="checkbox">
       <label>
-        <input ng-model="card.code" type="checkbox"> Use syntax highlighting
+        <input ng-model="card.code" type="checkbox" ng-init="card.code=true"> Use syntax highlighting
       </label>
     </div>
     <button type="submit" class="btn btn-default">Submit</button>

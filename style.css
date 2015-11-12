@@ -42,6 +42,7 @@ input {
   margin-left: 3px;
   margin-right: 3px;
 }
-tag span {
-  padding: 0 2px; 
+.tagCloud span {
+  padding: 0 2px;
+  cursor: pointer;
 }
