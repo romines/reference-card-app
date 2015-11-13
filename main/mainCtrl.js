@@ -3,16 +3,27 @@ angular.module('cardApp')
     // put isolate scope cards (via resolve) on $scope
     $scope.cards = cards.data;
 
-    console.log(cards.data);
+    function once() {
+      angular.forEach(cards.data, function (card) {
+        var cardId = card.$id;
+        var cardToUpdate = cards.data.$getRecord(cardId);
+        var tagString = cardToUpdate.tags;
+        // console.log(tagString);
+        // console.log(listifyTags(tagString));
+        cardToUpdate.tags = listifyTags(tagString);
+        cards.data.$save(cardToUpdate);
+      });
+    }
 
-    angular.forEach(cards.data, function (card) {
-      card.tags = "this is a test";
-      console.log(card.tags);
-    })
+    // once();
+
+    function listifyTags(str) {
+      return str.split(/[ ,]+/);
+    }
+
     $scope.edit = function(cardId) {
       console.log(cardId);
     }
-
     // var once = function (collection) {
     //   for (card in collection) {
     //     card.update({
