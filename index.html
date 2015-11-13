@@ -14,10 +14,11 @@
   <div class="container">
     <div class="theNav" ng-controller="navCtrl">
       <ul class="nav nav-tabs">
-        <li role="presentation" ng-class="{active: isActive('/')}"><a ui-sref="cards">Home</a></li>
-        <li role="presentation"><a ui-sref="new">Add Card</a></li>
-        <li role="presentation"><a ui-sref="about">About</a></li>
+        <li role="presentation" ng-class="{active: appState=='cards'}" ng-init="appState='cards'"><a ui-sref="cards">Home</a></li>
+        <li role="presentation" ng-class="{active: appState=='new'}"><a ui-sref="new">Add Card</a></li>
+        <li role="presentation" ng-class="{active: appState=='about'}"><a ui-sref="about">About</a></li>
       </ul>
+
     </div>
     <div class="main" ui-view></div>
 

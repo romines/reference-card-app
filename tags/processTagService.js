@@ -30,7 +30,7 @@ angular.module('cardApp')
       var sorted = tagsArr.slice().sort(sortNumber);
 
       for (var i in sorted) {
-        var proportion = (sorted[i].num / sorted[sorted.length - 1].num).toFixed(2);
+        var proportion = ((sorted[i].num) / sorted[sorted.length - 1].num).toFixed(2);
         sorted[i].proportion = proportion;
       }
 
