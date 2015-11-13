@@ -3,6 +3,27 @@ angular.module('cardApp')
     // put isolate scope cards (via resolve) on $scope
     $scope.cards = cards.data;
 
+    console.log(cards.data);
+
+    angular.forEach(cards.data, function (card) {
+      card.tags = "this is a test";
+      console.log(card.tags);
+    })
+    $scope.edit = function(cardId) {
+      console.log(cardId);
+    }
+
+    // var once = function (collection) {
+    //   for (card in collection) {
+    //     card.update({
+    //       "tags": listifyTags(card)});
+    //   }
+    // }
+    // once($scope.cards);
+
+    // var cloud = processTag.buildCloud($scope.cards);
+    // console.log ('cloud: ', cloud)
+
     // handle saving new card
     // takes: card object
     //
@@ -24,51 +45,5 @@ angular.module('cardApp')
     $scope.updateFilter = function(tagName) {
       $scope.cardFilter = tagName;
     }
-
-    var listifyTags = function (card) {
-      if (card.tags) {
-      // var tagsArray = card.tags.split(/[ ,]+/);
-      // card.tags = tagsArray;
-      console.log(card.tags)
-    // } else {
-    //   card.tags = [];
-    }
-    //   return card;
-
-    }
-
-    $scope.tags = [
-      {
-        name: 'red',
-        num: 50,
-        weight: 0
-      },
-      {
-        name: 'blue',
-        num: 70,
-        weight: 0
-      },
-      {
-        name: 'green',
-        num: 40,
-        weight: 0
-      },
-      {
-        name: 'purple',
-        num: 20,
-        weight: 0
-      }
-    ];
-
-    var once = function (collection) {
-      for (card in collection) {
-        card.update({
-          "tags": listifyTags(card)});
-      }
-    }
-    // once($scope.cards);
-
-    // var cloud = processTag.buildCloud($scope.cards);
-    // console.log ('cloud: ', cloud)
 
 }]);

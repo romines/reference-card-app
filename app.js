@@ -6,13 +6,7 @@ var myApp = angular.module('cardApp', ['ui.router', 'firebase'])
         controller: 'mainCtrl',
         url: '/',
         resolve: {
-          cards: function ($firebaseArray) {
-            var cardsRef = new Firebase('https://reference-cards-app.firebaseio.com/cards')
-            cards = $firebaseArray(cardsRef);
-            return cards.$loaded().then(function (data) {
-              return data;
-            });
-          }
+          cards: resFire
         }
       })
       .state('about', {
@@ -25,18 +19,30 @@ var myApp = angular.module('cardApp', ['ui.router', 'firebase'])
         controller: 'mainCtrl',
         url: '/add-card',
         resolve: {
-          cards: function ($firebaseArray) {
-            var cardsRef = new Firebase('https://reference-cards-app.firebaseio.com/cards')
-            cards = $firebaseArray(cardsRef);
-            return cards.$loaded().then(function (data) {
-              return {
-                data: data,
-                cardsRef: cardsRef
-              };
-            });
+          cards: resFire
+        }
+      })
+      .state('edit', {
+        template: 'This is the edit card page',
+        controller: 'editCardCtrl',
+        url: '/edit/:cardId',
+        resolve: {
+          editCardRef: function ($stateParams, cardService) {
+            return cardService.getCards($stateParams.cardId);
           }
         }
+      })
+
+    function resFire ($firebaseArray) {
+      var cardsRef = new Firebase('https://reference-cards-app.firebaseio.com/cards')
+      cards = $firebaseArray(cardsRef);
+      return cards.$loaded().then(function (data) {
+        return {
+          data: data,
+          cardsRef: cardsRef
+        };
       });
+    }
 
     $urlRouterProvider.otherwise('/');
   });
