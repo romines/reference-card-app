@@ -23,7 +23,7 @@ var myApp = angular.module('cardApp', ['ui.router', 'firebase'])
         }
       })
       .state('edit', {
-        template: 'This is the edit card page',
+        templateUrl: 'cards/edit.html',
         controller: 'editCardCtrl',
         url: '/edit/:cardId',
         resolve: {
