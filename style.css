@@ -38,11 +38,14 @@ input {
 .glyphicon-tag {
   color: darkgrey;
 }
-.tagCloud .tag {
-  margin-left: 3px;
-  margin-right: 3px;
+a.editCard {
+  float: right;
 }
-.tagCloud span {
-  padding: 0 2px;
+.tagCloud {
+  font-size: 27px;
+}
+.tagCloud tag {
+  /*padding: 0 2px;*/
+  display: inline-block;
   cursor: pointer;
 }

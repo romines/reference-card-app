@@ -7,7 +7,7 @@
     *******************
     -->
 
-    <tag ng-repeat="tag in tags" tag="tag" ng-click="updateFilter(tag.name)"></tag>
+    <tag ng-repeat="tag in cloud" tag="tag" ng-click="updateFilter(tag.name)"></tag>
     <span ng-click="updateFilter('')">all</span>
   </div>
   <div class="col-md-10">
@@ -33,9 +33,9 @@
     <div ng-repeat="card in cards | reverse | filter: cardFilter ">
       <h3>{{card.title}}</h3>
       <card card="card"></card>
-      <p>
-        <span class="glyphicon glyphicon-tag" aria-hidden="true"></span> &nbsp; {{card.tags}}</p>
-        <a href="/#/edit/{{card.$id}}">Edit Card</a>
+
+        <span class="glyphicon glyphicon-tag" aria-hidden="true"></span> &nbsp; {{card.tags.join(', ')}}
+        <a href="/#/edit/{{card.$id}}" class="editCard">edit card</a>
     </div>
   </div>
 </div>

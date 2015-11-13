@@ -1,21 +1,7 @@
 angular.module('cardApp')
-  .controller('mainCtrl', ['$scope', '$firebaseObject', '$firebaseArray', '$state', 'cards', 'processTag', function ($scope, $firebaseObject, $firebaseArray, $state, cards, processTag) {
+  .controller('mainCtrl', ['$scope', '$firebaseObject', '$firebaseArray', '$state', 'cards', 'processTags', function ($scope, $firebaseObject, $firebaseArray, $state, cards, processTags) {
     // put isolate scope cards (via resolve) on $scope
     $scope.cards = cards.data;
-
-    function once() {
-      angular.forEach(cards.data, function (card) {
-        var cardId = card.$id;
-        var cardToUpdate = cards.data.$getRecord(cardId);
-        var tagString = cardToUpdate.tags;
-        // console.log(tagString);
-        // console.log(listifyTags(tagString));
-        cardToUpdate.tags = listifyTags(tagString);
-        cards.data.$save(cardToUpdate);
-      });
-    }
-
-    // once();
 
     function listifyTags(str) {
       return str.split(/[ ,]+/);
@@ -24,16 +10,9 @@ angular.module('cardApp')
     $scope.edit = function(cardId) {
       console.log(cardId);
     }
-    // var once = function (collection) {
-    //   for (card in collection) {
-    //     card.update({
-    //       "tags": listifyTags(card)});
-    //   }
-    // }
-    // once($scope.cards);
 
-    // var cloud = processTag.buildCloud($scope.cards);
-    // console.log ('cloud: ', cloud)
+    $scope.cloud = processTags.buildCloud(cards.data);
+    // console.log(cloud);
 
     // handle saving new card
     // takes: card object
@@ -46,7 +25,7 @@ angular.module('cardApp')
         code: true
       };
       var newCard = angular.copy(card);
-      newCard = listifyTags(newCard);
+      newCard.tags = listifyTags(newCard.tags);
       cards.$add(newCard);
       $scope.card = formDefaults;
       $scope.cardForm.$setPristine();

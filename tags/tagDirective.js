@@ -5,13 +5,14 @@ angular.module('cardApp')
       tag: '=',
     },
     restrict: 'E',
-    template: '<span>{{tag.name}}</span>',
+    template: '{{tag.name}}&nbsp;',
     link: function (scope, elem, attrs) {
-      elem.css('font-size', fontSize(scope.tag.num));
+      elem.css('font-size', fontSize(scope.tag.proportion));
     }
   }
 })
 
 function fontSize(frequency) {
-  return ('1.' + frequency.toString() + 'em');
+  console.log(frequency.toString());
+  return (frequency.toString() + 'em');
 }
