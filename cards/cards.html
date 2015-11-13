@@ -8,7 +8,7 @@
     -->
 
     <tag ng-repeat="tag in cloud" tag="tag" ng-click="updateFilter(tag.name)"></tag>
-    <span ng-click="updateFilter('')">all</span>
+    <span ng-click="updateFilter('')" id="clear">all</span>
   </div>
   <div class="col-md-10">
     <!--

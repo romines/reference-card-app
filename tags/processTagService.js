@@ -28,16 +28,14 @@ angular.module('cardApp')
         tagsArr.push(tmpObj);
       }
       var sorted = tagsArr.slice().sort(sortNumber);
-      // console.log(tagsArr);
-      console.log(sorted[sorted.length - 1].num);
+
       for (var i in sorted) {
         var proportion = (sorted[i].num / sorted[sorted.length - 1].num).toFixed(2);
         sorted[i].proportion = proportion;
       }
 
-      console.log(sorted);
+      return shuffle(sorted);
 
-      return tagsArr;
     }
     function sortNumber(a,b) {
       return a.num - b.num;

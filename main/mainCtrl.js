@@ -12,7 +12,6 @@ angular.module('cardApp')
     }
 
     $scope.cloud = processTags.buildCloud(cards.data);
-    // console.log(cloud);
 
     // handle saving new card
     // takes: card object

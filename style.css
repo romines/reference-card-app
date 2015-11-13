@@ -44,8 +44,7 @@ a.editCard {
 .tagCloud {
   font-size: 27px;
 }
-.tagCloud tag {
-  /*padding: 0 2px;*/
+.tagCloud tag, #clear {
   display: inline-block;
   cursor: pointer;
 }

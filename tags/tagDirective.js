@@ -13,6 +13,5 @@ angular.module('cardApp')
 })
 
 function fontSize(frequency) {
-  console.log(frequency.toString());
   return (frequency.toString() + 'em');
 }
