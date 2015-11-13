@@ -3,8 +3,8 @@ angular.module('cardApp')
 
     $scope.card = $firebaseObject(editCardRef);
 
-    $scope.saveEdits = function(card){
-      card.$save();
+    $scope.saveEdits = function(){
+      $scope.card.$save();
       $state.go('cards');
     }
 

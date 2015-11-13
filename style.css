@@ -43,6 +43,7 @@ a.editCard {
 }
 .tagCloud {
   font-size: 30px;
+  line-height: 88%;
 }
 .tagCloud tag, #clear {
   display: inline-block;
