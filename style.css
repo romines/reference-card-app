@@ -42,7 +42,7 @@ a.editCard {
   float: right;
 }
 .tagCloud {
-  font-size: 27px;
+  font-size: 30px;
 }
 .tagCloud tag, #clear {
   display: inline-block;
