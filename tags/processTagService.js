@@ -5,8 +5,9 @@ angular.module('cardApp')
       var tagsObj = {};
 
       angular.forEach(cards, function (card) {
-        // loop through tags, ad each unique value to object, with number property
-        // increment count if encountered again
+        // loop through tags, ad each unique value to object, with a number
+        // property initialized at 1. Increment number if encountered again
+        //
         for (tag in card.tags) {
           var aTag = card.tags[tag]
           if (tagsObj[aTag]) {
@@ -17,7 +18,7 @@ angular.module('cardApp')
         }
 
       })
-      // turn object into array for to ng-repeat on
+      // turn object into array to ng-repeat on
       var tagsArr = [];
       for (var prop in tagsObj) {
 
@@ -30,8 +31,11 @@ angular.module('cardApp')
       }
       // sort to find highest number
       var sorted = tagsArr.slice().sort(sortNumber);
-      // add 'proportion' porperty which is two digit decimal between 0 and 1
-      // eg. tag appearing once (.20), tag appearing 5 times (max = 1)
+      //
+      // add 'proportion' porperty (two digit decimal fraction) which represents
+      // the ratio of this tags 'number' to the most popular tag's number.
+      // eg. if the post popular tag appears 5 times, a tag appearing once gets .20
+      //
       for (var i in sorted) {
         var proportion = (((sorted[i].num) / sorted[sorted.length - 1].num)/2 + .5).toFixed(2);
         sorted[i].proportion = proportion;
@@ -40,9 +44,15 @@ angular.module('cardApp')
       return shuffle(sorted);
 
     }
+    //
+    // ################# HELPERS ###################
+    //
+    //numerical sort
     function sortNumber(a,b) {
       return a.num - b.num;
     }
+
+    // Fisher-Yates shuffle via http://stackoverflow.com/a/2450976/1795119
     function shuffle(array) {
       var currentIndex = array.length, temporaryValue, randomIndex ;
 
