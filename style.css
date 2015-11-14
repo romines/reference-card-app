@@ -45,6 +45,13 @@ a.editCard {
   font-size: 30px;
   line-height: 88%;
 }
+.tagCloud h2 {
+  font-size: 25px;
+  color: #3B3099;
+  border-bottom: 1px solid;
+  margin-bottom: 15px;
+  padding-bottom: 7px;
+}
 .tagCloud tag, #clear {
   display: inline-block;
   cursor: pointer;
