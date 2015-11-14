@@ -28,7 +28,7 @@ var myApp = angular.module('cardApp', ['ui.router', 'firebase'])
         url: '/edit/:cardId',
         resolve: {
           editCardRef: function ($stateParams, cardService) {
-            return cardService.getCards($stateParams.cardId);
+            return cardService.getCard($stateParams.cardId);
           }
         }
       })
