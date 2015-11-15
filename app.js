@@ -17,7 +17,7 @@ var myApp = angular.module('cardApp', ['ui.router', 'firebase'])
         url: '/about'
       })
       .state('new', {
-        templateUrl: 'cards/new.html',
+        templateUrl: 'cards/new/new.html',
         controller: 'newCardCtrl',
         url: '/add-card',
         resolve: {
@@ -27,7 +27,7 @@ var myApp = angular.module('cardApp', ['ui.router', 'firebase'])
         }
       })
       .state('edit', {
-        templateUrl: 'cards/edit.html',
+        templateUrl: 'cards/edit/edit.html',
         controller: 'editCardCtrl',
         url: '/edit/:cardId',
         resolve: {
