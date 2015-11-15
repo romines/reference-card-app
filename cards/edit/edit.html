@@ -11,6 +11,7 @@
       <label>
         <input ng-model="card.code" type="checkbox" ng-init="card.code=true"> Use syntax highlighting
       </label>
+      <a href ng-click="delete(card)" id="delete">delete card</a>
     </div>
     <button type="submit" ng-click="saveEdits()" class="btn btn-default">Save</button>
   </form>

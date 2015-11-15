@@ -56,3 +56,6 @@ a.editCard {
   display: inline-block;
   cursor: pointer;
 }
+#delete {
+  float: right;
+}

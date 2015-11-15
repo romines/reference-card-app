@@ -33,9 +33,9 @@
     <div ng-repeat="card in cards | reverse | filter: cardFilter ">
       <h3>{{card.title}}</h3>
       <card card="card"></card>
-
+        <!-- href="/#/edit/{{card.$id}}" -->
         <span class="glyphicon glyphicon-tag" aria-hidden="true"></span> &nbsp; {{card.tags.join(', ')}}
-        <a href="/#/edit/{{card.$id}}" class="editCard">edit card</a>
+        <a ui-sref="edit({cardId: card.$id})" class="editCard">edit card</a>
     </div>
   </div>
 </div>
