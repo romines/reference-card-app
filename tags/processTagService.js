@@ -1,13 +1,14 @@
 angular.module('cardApp')
   .service('processTags', function() {
     this.buildCloud = function(cards) {
-
       var tagsObj = {};
 
-      angular.forEach(cards, function (card) {
+
+      cards.forEach(function (card) {
         // loop through tags, ad each unique value to object, with a number
         // property initialized at 1. Increment number if encountered again
         //
+
         for (tag in card.tags) {
           var aTag = card.tags[tag]
           if (tagsObj[aTag]) {
@@ -18,6 +19,7 @@ angular.module('cardApp')
         }
 
       })
+      
       // turn object into array to ng-repeat on
       var tagsArr = [];
       for (var prop in tagsObj) {

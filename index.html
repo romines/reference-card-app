@@ -12,7 +12,7 @@
 <body>
 
   <div class="container">
-    <div class="theNav" ng-controller="navCtrl">
+    <div class="theNav">
       <ul class="nav nav-tabs">
         <li role="presentation" ng-class="{active: appState=='cards'}" ng-init="appState='cards'"><a ui-sref="cards">Home</a></li>
         <li role="presentation" ng-class="{active: appState=='new'}"><a ui-sref="new">Add Card</a></li>
@@ -37,11 +37,11 @@
   <script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.js"></script>
   <script src="app.js" charset="utf-8"></script>
   <script src="main/mainCtrl.js" charset="utf-8"></script>
-  <script src="main/navCtrl.js" charset="utf-8"></script>
   <script src="main/filters.js" charset="utf-8"></script>
   <script src="cards/cardDirective.js" charset="utf-8"></script>
   <script src="cards/cardService.js" charset="utf-8"></script>
   <script src="cards/editCardCtrl.js" charset="utf-8"></script>
+  <script src="cards/newCardCtrl.js" charset="utf-8"></script>
   <script src="tags/tagDirective.js" charset="utf-8"></script>
   <script src="tags/processTagService.js" charset="utf-8"></script>
 </body>
